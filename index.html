@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <!-- Hamburger Button -->
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+
     <div class="div">
         <!-- Sidebar -->
          
@@ -222,5 +225,15 @@
             </div>
         </div>
     </div>
+
+<script>
+    
+  function toggleSidebar() {
+    const sidebar = document.querySelector('.side-bar');
+    sidebar.classList.toggle('active');
+  }
+
+
+</script>    
 </body>
 </html>
