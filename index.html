@@ -230,7 +230,15 @@
     
   function toggleSidebar() {
     const sidebar = document.querySelector('.side-bar');
-    sidebar.classList.toggle('active');
+    const root = document.querySelector('.div');
+    const isActive = sidebar.classList.toggle('active');
+    if (isActive) {
+      root.classList.add('sidebar-open');
+      document.body.style.overflow = 'hidden';
+    } else {
+      root.classList.remove('sidebar-open');
+      document.body.style.overflow = '';
+    }
   }
 
 
