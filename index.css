@@ -1435,7 +1435,7 @@ th, td {
     right: 1rem;
 }
 
-/
+
 
 .side-bar.active ~ .menu-btn::before {
     content: "❌";
