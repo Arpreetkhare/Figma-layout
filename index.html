@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -12,23 +13,25 @@
 
     <div class="div">
         <!-- Sidebar -->
-         
         <div class="side-bar">
-            <!--new-->
-            <h1 id="h1Tag">DUKAAN</h1>
+            <!-- DUKAAN with Icon -->
+            <h1 id="h1Tag">
+                <span class="material-icons dukaan-icon">store</span>
+                DUKAAN
+            </h1>
             <ul class="sidebar-menu">
-                <li class="active">Dashboard</li>
-                <li>Statistics</li>
-                <li>Payment</li>
-                <li>Transactions</li>
-                <li>Products</li>
-                <li>Customers</li>
-                <li>Messages</li>
+                <li class="active"><span class="material-icons">dashboard</span> Dashboard</li>
+                <li><span class="material-icons">bar_chart</span> Statistics</li>
+                <li><span class="material-icons">payment</span> Payment</li>
+                <li><span class="material-icons">receipt</span> Transactions</li>
+                <li><span class="material-icons">inventory</span> Products</li>
+                <li><span class="material-icons">people</span> Customers</li>
+                <li><span class="material-icons">message</span> Messages</li>
             </ul>
 
             <div class="sidebar-footer">
-                <p>Settings</p>
-                <p>Logout</p>
+                <p><span class="material-icons">settings</span> Settings</p>
+                <p><span class="material-icons">logout</span> Logout</p>
             </div>
         </div>
 
@@ -156,11 +159,6 @@
            
             </div>
 
-
-
-            
-
-
             <!-- Most Sold Items -->
             <!--new-->
             <div class="mid2-bar card">
@@ -229,17 +227,31 @@
 <script>
     
   function toggleSidebar() {
-    const sidebar = document.querySelector('.side-bar');
-    const root = document.querySelector('.div');
-    const isActive = sidebar.classList.toggle('active');
-    if (isActive) {
-      root.classList.add('sidebar-open');
-      document.body.style.overflow = 'hidden';
-    } else {
-      root.classList.remove('sidebar-open');
-      document.body.style.overflow = '';
-    }
+  const sidebar = document.querySelector('.side-bar');
+  const root = document.querySelector('.div');
+  const isActive = sidebar.classList.toggle('active');
+  
+  if (isActive) {
+    root.classList.add('sidebar-open');
+    document.body.style.overflow = 'hidden';
+  } else {
+    root.classList.remove('sidebar-open');
+    document.body.style.overflow = '';
   }
+}
+
+// Close sidebar when clicking outside on mobile
+document.addEventListener('click', function(event) {
+  const sidebar = document.querySelector('.side-bar');
+  const menuBtn = document.querySelector('.menu-btn');
+  const isMobile = window.innerWidth <= 768;
+  
+  if (isMobile && sidebar.classList.contains('active') && 
+      !sidebar.contains(event.target) && 
+      !menuBtn.contains(event.target)) {
+    toggleSidebar();
+  }
+});
 
 
 </script>    
